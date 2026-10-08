@@ -54,7 +54,7 @@ tailwind.config = { theme: { extend: {
       <a class="hover:text-ink transition-colors" href="#projects">Projects</a>
       <a class="hover:text-ink transition-colors" href="#contact">Contact</a>
     </div>
-    <a href="cv.pdf" download class="rounded-lg border border-sensor/70 px-4 py-2 text-sm text-red-300 transition-all duration-200 hover:border-sensor hover:bg-sensor/10 hover:text-red-200 hover:shadow-[0_0_18px_rgba(239,68,68,0.5)] active:scale-95">Download CV</a>
+    <a href="#" data-cv="download" class="rounded-lg border border-sensor/70 px-4 py-2 text-sm text-red-300 transition-all duration-200 hover:border-sensor hover:bg-sensor/10 hover:text-red-200 hover:shadow-[0_0_18px_rgba(239,68,68,0.5)] active:scale-95">Download CV</a>
   </nav>
 </header>
 
@@ -73,8 +73,8 @@ tailwind.config = { theme: { extend: {
     <p class="mt-5 text-mute text-lg leading-relaxed max-w-xl">I design and build connected embedded systems and custom hardware prototypes. My work connects real-time microcontroller firmware, physical CAD fabrication, and network infrastructure into reliable edge-to-cloud IoT solutions.</p>
     <div class="mt-9 flex flex-wrap gap-4">
       <a href="#projects" class="rounded-lg bg-vidar px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-sensor hover:shadow-[0_0_24px_rgba(239,68,68,0.45)] active:scale-95">View Projects</a>
-      <a href="cv.pdf" download class="rounded-lg bg-red-600 px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-red-500 hover:shadow-[0_0_24px_rgba(239,68,68,0.45)] active:scale-95">Download CV</a>
-      <a href="cv.pdf" target="_blank" rel="noopener" class="rounded-lg border border-slate-700 px-6 py-3 font-medium text-slate-200 transition-all duration-200 hover:border-slate-500 hover:text-white active:scale-95">View CV</a>
+      <a href="#" data-cv="download" class="rounded-lg bg-red-600 px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-red-500 hover:shadow-[0_0_24px_rgba(239,68,68,0.45)] active:scale-95">Download CV</a>
+      <a href="#" data-cv="view" target="_blank" rel="noopener" class="rounded-lg border border-slate-700 px-6 py-3 font-medium text-slate-200 transition-all duration-200 hover:border-slate-500 hover:text-white active:scale-95">View CV</a>
     </div>
   </div>
 
@@ -269,14 +269,27 @@ tailwind.config = { theme: { extend: {
     <p>&copy; <span id="yr"></span> Nicholas Laurensius Halim</p>
     <div class="flex gap-6">
       <a class="transition-colors hover:text-sensor" href="https://github.com/apeirithy" target="_blank" rel="noopener">GitHub</a>
-      <a class="transition-colors hover:text-sensor" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
-      <a class="transition-colors hover:text-sensor" href="mailto:your.email@example.com">Email</a>
+      <a class="transition-colors hover:text-sensor" href="https://www.linkedin.com/in/nicholas-laurensius-halim" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="transition-colors hover:text-sensor" href="mailto:nicholas.lh246@gmail.com">Email</a>
     </div>
   </div>
 </footer>
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+// CV links: paste your Google Drive share link here (access: "Anyone with the link")
+const CV_DRIVE_URL = 'https://drive.google.com/file/d/PASTE_FILE_ID_HERE/view?usp=sharing';
+(() => {
+  const m = CV_DRIVE_URL.match(/\/d\/([^/?#]+)/) || CV_DRIVE_URL.match(/[?&]id=([^&#]+)/);
+  if (!m) return;
+  const id = m[1];
+  const urls = {
+    view: `https://drive.google.com/file/d/${id}/view`,
+    download: `https://drive.google.com/uc?export=download&id=${id}`
+  };
+  document.querySelectorAll('[data-cv]').forEach(a => { a.href = urls[a.dataset.cv]; });
+})();
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // Scroll reveal
@@ -309,8 +322,8 @@ const lines = [
   ['', ''],
   ['$ contact --list', 'text-ink'],
   ['github    https://github.com/apeirithy', 'text-indigo-300'],
-  ['linkedin  https://www.linkedin.com/in/YOUR-LINKEDIN', 'text-indigo-300'],
-  ['email     your.email@example.com', 'text-indigo-300']
+  ['linkedin  https://www.linkedin.com/in/nicholas-laurensius-halim', 'text-indigo-300'],
+  ['email     nicholas.lh246@gmail.com', 'text-indigo-300']
 ];
 const term = document.getElementById('term');
 const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
