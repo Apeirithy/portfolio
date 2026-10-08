@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nicholas Laurensius Halim | Embedded Systems, IoT & Network Engineering</title>
+<meta name="description" content="Portfolio of Nicholas Laurensius Halim, Computer Engineering student at BINUS University: embedded systems, IoT, network infrastructure and digital logic.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = { theme: { extend: {
+  fontFamily: { display: ['Outfit','Inter','sans-serif'], sans: ['Inter','sans-serif'], mono: ['JetBrains Mono','monospace'] },
+  colors: { obsidian:'#090a0f', frame:'#0d0f17', card:'#131722', edge:'#232936', vidar:'#7c3aed', indigo2:'#6366f1', sensor:'#ef4444', ink:'#f8fafc', mute:'#94a3b8' }
+}}}
+</script>
+<style>
+  body{background:#090a0f;color:#f8fafc;
+    background-image:radial-gradient(#232936 1px,transparent 1px);background-size:26px 26px;}
+  body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+    background:radial-gradient(60% 40% at 80% 0%,rgba(124,58,237,.18),transparent),radial-gradient(40% 30% at 0% 60%,rgba(239,68,68,.06),transparent);}
+  :focus-visible{outline:2px solid #6366f1;outline-offset:3px}
+  .tag{font-family:'JetBrains Mono',monospace;font-size:11px;padding:2px 8px;border-radius:6px;border:1px solid #2d3350;background:#0d0f17;color:#a5b4fc}
+  .spec dt{color:#94a3b8}.spec dd{color:#f8fafc}
+  /* Scroll reveal (only active when JS is running) */
+  .js .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .js .reveal.in{opacity:1;transform:none}
+  /* Filter re-entry */
+  @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  .card-in{animation:fadeUp .4s ease both}
+  .filter-btn[aria-pressed="true"]{background:#7c3aed;border-color:#7c3aed;color:#fff}
+  .pulse{animation:pulse 1.8s ease-in-out infinite}
+  @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.6)}50%{box-shadow:0 0 0 6px rgba(239,68,68,0)}}
+  .caret::after{content:"\258B";color:#7c3aed;animation:blink 1s steps(2) infinite}
+  @keyframes blink{50%{opacity:0}}
+  @media (prefers-reduced-motion:reduce){
+    .js .reveal{opacity:1;transform:none;transition:none}
+    .card-in,.pulse,.caret::after{animation:none}
+    *{transition-duration:0s!important}
+  }
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="font-sans antialiased">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 border-b border-edge bg-obsidian/85 backdrop-blur">
+  <nav class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between gap-4" aria-label="Primary">
+    <a href="#top" class="font-display font-semibold tracking-tight">Nicholas Halim <span class="text-sensor font-mono">//</span> <span class="text-mute font-normal hidden sm:inline">Computer Engineering</span></a>
+    <div class="hidden md:flex items-center gap-8 text-sm text-mute">
+      <a class="hover:text-ink transition-colors" href="#about">About</a>
+      <a class="hover:text-ink transition-colors" href="#capabilities">Capabilities</a>
+      <a class="hover:text-ink transition-colors" href="#projects">Projects</a>
+      <a class="hover:text-ink transition-colors" href="#contact">Contact</a>
+    </div>
+    <a href="cv.pdf" download class="rounded-lg border border-sensor/70 px-4 py-2 text-sm text-red-300 transition-all duration-200 hover:border-sensor hover:bg-sensor/10 hover:text-red-200 hover:shadow-[0_0_18px_rgba(239,68,68,0.5)] active:scale-95">Download CV</a>
+  </nav>
+</header>
+
+<main id="top">
+<!-- HERO -->
+<section id="about" class="max-w-6xl mx-auto px-5 pt-16 pb-24 grid lg:grid-cols-[1.25fr_1fr] gap-12 items-center">
+  <div class="reveal">
+    <p class="inline-flex items-center gap-3 rounded-full border border-edge bg-frame px-4 py-2 text-xs sm:text-sm text-mute">
+      <span class="w-2 h-2 rounded-full bg-sensor pulse shrink-0"></span>
+      Available for opportunities
+    </p>
+    <h1 class="font-display font-extrabold tracking-tight leading-[0.98] mt-7 text-5xl sm:text-6xl lg:text-7xl">
+      Nicholas Laurensius <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo2 to-vidar">Halim</span>
+    </h1>
+    <p class="font-mono text-sm text-indigo-300 mt-5">Computer Engineering @ BINUS University</p>
+    <p class="mt-5 text-mute text-lg leading-relaxed max-w-xl">I design and build embedded firmware, FPGA logic, and network infrastructure, from bare-metal silicon and real-time operating systems to campus-scale networks and edge-to-cloud IoT.</p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <a href="#projects" class="rounded-lg bg-vidar px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-sensor hover:shadow-[0_0_24px_rgba(239,68,68,0.45)] active:scale-95">View Projects</a>
+      <a href="cv.pdf" download class="rounded-lg bg-red-600 px-6 py-3 font-medium text-white transition-all duration-200 hover:bg-red-500 hover:shadow-[0_0_24px_rgba(239,68,68,0.45)] active:scale-95">Download CV</a>
+      <a href="cv.pdf" target="_blank" rel="noopener" class="rounded-lg border border-slate-700 px-6 py-3 font-medium text-slate-200 transition-all duration-200 hover:border-slate-500 hover:text-white active:scale-95">View CV</a>
+    </div>
+  </div>
+
+  <div class="reveal relative mx-auto w-64">
+    <div class="absolute -z-10 -inset-4 rounded-3xl bg-gradient-to-br from-vidar/25 to-sensor/20 blur-3xl"></div>
+    <div class="rounded-2xl border border-vidar/50 border-r-sensor/60 bg-card p-2 shadow-[-8px_0_28px_rgba(124,58,237,0.30),8px_0_28px_rgba(239,68,68,0.22)]">
+      <div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-frame">
+        <img src="assets/profile.jpg" alt="Portrait of Nicholas Laurensius Halim" class="h-full w-full object-cover"
+             onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+        <div class="hidden absolute inset-0 items-center justify-center p-6 text-center font-mono text-xs text-mute">Add your photo at<br>assets/profile.jpg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAPABILITIES -->
+<section id="capabilities" class="max-w-6xl mx-auto px-5 pb-24">
+  <h2 class="reveal font-display text-3xl sm:text-4xl font-bold tracking-tight">Core capabilities</h2>
+  <div class="grid md:grid-cols-2 gap-6 mt-10">
+    <article class="reveal rounded-xl border border-l-2 border-edge border-l-red-500 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-red-500 hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <h3 class="font-display text-lg font-semibold"><span class="mr-2 font-mono text-red-500" aria-hidden="true">//</span>Firmware &amp; Logic</h3>
+      <ul class="flex flex-wrap gap-2 mt-4">
+        <li class="tag">C/C++</li><li class="tag">FreeRTOS</li><li class="tag">VHDL</li><li class="tag">AVR-GCC</li><li class="tag">FSM design</li>
+      </ul>
+    </article>
+    <article class="reveal rounded-xl border border-l-2 border-edge border-l-red-500 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-red-500 hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <h3 class="font-display text-lg font-semibold"><span class="mr-2 font-mono text-red-500" aria-hidden="true">//</span>Hardware &amp; EDA</h3>
+      <ul class="flex flex-wrap gap-2 mt-4">
+        <li class="tag">ESP32-S3 dual-core</li><li class="tag">Xilinx Artix-7 (Nexys A7)</li><li class="tag">EasyEDA PCB routing</li><li class="tag">CNC PCB engraving</li><li class="tag">3D prototyping</li>
+      </ul>
+    </article>
+    <article class="reveal rounded-xl border border-l-2 border-edge border-l-red-500 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-red-500 hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <h3 class="font-display text-lg font-semibold"><span class="mr-2 font-mono text-red-500" aria-hidden="true">//</span>Infrastructure &amp; Security</h3>
+      <ul class="flex flex-wrap gap-2 mt-4">
+        <li class="tag">Cisco IOS</li><li class="tag">OSPF multi-area, MD5 auth</li><li class="tag">VLAN trunking / SVI</li><li class="tag">Extended ACL</li><li class="tag">DHCP snooping</li><li class="tag">Sticky port security</li>
+      </ul>
+    </article>
+    <article class="reveal rounded-xl border border-l-2 border-edge border-l-red-500 bg-card p-6 transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-red-500 hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <h3 class="font-display text-lg font-semibold"><span class="mr-2 font-mono text-red-500" aria-hidden="true">//</span>Protocols &amp; Cloud</h3>
+      <ul class="flex flex-wrap gap-2 mt-4">
+        <li class="tag">Firebase RTDB &amp; Storage</li><li class="tag">MQTT</li><li class="tag">Server-Sent Events</li><li class="tag">I2C / SPI / UART</li><li class="tag">Headless Linux</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="max-w-6xl mx-auto px-5 pb-24">
+  <div class="reveal flex flex-wrap items-end justify-between gap-6">
+    <h2 class="font-display text-3xl sm:text-4xl font-bold tracking-tight">Selected Engineering Projects</h2>
+    <div class="flex flex-wrap gap-2" role="group" aria-label="Filter projects by category">
+      <button class="filter-btn rounded-lg border border-edge bg-frame px-4 py-2 text-sm text-mute transition-all duration-200 hover:border-purple-500/60 hover:text-ink active:scale-95" data-filter="all" aria-pressed="true">All</button>
+      <button class="filter-btn rounded-lg border border-edge bg-frame px-4 py-2 text-sm text-mute transition-all duration-200 hover:border-purple-500/60 hover:text-ink active:scale-95" data-filter="embedded" aria-pressed="false">Embedded &amp; IoT</button>
+      <button class="filter-btn rounded-lg border border-edge bg-frame px-4 py-2 text-sm text-mute transition-all duration-200 hover:border-purple-500/60 hover:text-ink active:scale-95" data-filter="network" aria-pressed="false">Network &amp; Logic</button>
+    </div>
+  </div>
+
+  <div id="grid" class="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+    <!-- 01 -->
+    <article data-cat="embedded" class="project reveal flex flex-col overflow-hidden rounded-xl border border-l-[3px] border-edge border-l-transparent bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-sensor hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <div class="relative aspect-video bg-frame">
+        <img src="assets/square_preview.png" alt="Square Smart Parcel Box" class="w-full h-full object-cover rounded-t-xl border-b border-slate-800" onerror="this.style.display='none'">
+        <span class="absolute inset-0 -z-0 flex items-center justify-center font-mono text-xs text-mute">assets/square_preview.png</span>
+      </div>
+      <div class="flex flex-1 flex-col p-6">
+        <p class="flex items-center gap-2 font-mono text-xs"><span class="rounded bg-sensor px-2 py-0.5 font-medium text-white">Featured</span><span class="text-sensor">Embedded &amp; IoT</span></p>
+        <h3 class="font-display text-xl font-bold mt-2">Square: Smart &amp; Secure Parcel Box</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3">A dual-core ESP32-S3 running FreeRTOS coordinates an OV2640 camera, a ToF distance sensor and a solenoid lock. If the network drops, captures queue in a MicroSD FIFO buffer and upload to Firebase when the connection returns.</p>
+        <dl class="spec font-mono text-xs grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 mt-4">
+          <dt>MCU</dt><dd>ESP32-S3, dual-core</dd><dt>OS</dt><dd>FreeRTOS</dd><dt>Sensors</dt><dd>OV2640, ToF</dd><dt>Actuator</dt><dd>Solenoid lock</dd><dt>Buffer</dt><dd>MicroSD FIFO</dd><dt>Cloud</dt><dd>Firebase</dd>
+        </dl>
+        <div class="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3">
+          <ul class="flex flex-wrap gap-2"><li class="tag">ESP32-S3</li><li class="tag">FreeRTOS</li><li class="tag">Firebase</li></ul>
+          <a href="https://github.com/apeirithy" target="_blank" rel="noopener" class="text-sm text-indigo-300 transition-colors hover:text-sensor">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 02 -->
+    <article data-cat="network" class="project reveal flex flex-col overflow-hidden rounded-xl border border-l-[3px] border-edge border-l-transparent bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-sensor hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <div class="relative aspect-video bg-frame">
+        <img src="assets/cnis_topology.png" alt="Campus Network Topology" class="w-full h-full object-cover rounded-t-xl border-b border-slate-800" onerror="this.style.display='none'">
+        <span class="absolute inset-0 -z-0 flex items-center justify-center font-mono text-xs text-mute">assets/cnis_topology.png</span>
+      </div>
+      <div class="flex flex-1 flex-col p-6">
+        <p class="font-mono text-xs text-sensor">Network &amp; Logic</p>
+        <h3 class="font-display text-xl font-bold mt-2">Enterprise Campus Network (CNIS)</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3">A Cisco Packet Tracer design of a hierarchical star topology across three campus buildings, with layered security at layers 2 and 3.</p>
+        <dl class="spec font-mono text-xs grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 mt-4">
+          <dt>Buildings</dt><dd>3</dd><dt>VLANs</dt><dd>13 departmental</dd><dt>Routing</dt><dd>OSPF multi-area</dd><dt>Security</dt><dd>L2 + L3</dd>
+        </dl>
+        <div class="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3">
+          <ul class="flex flex-wrap gap-2"><li class="tag">Cisco IOS</li><li class="tag">OSPF</li><li class="tag">ACL</li></ul>
+          <a href="https://github.com/apeirithy" target="_blank" rel="noopener" class="text-sm text-indigo-300 transition-colors hover:text-sensor">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 03 -->
+    <article data-cat="network" class="project reveal flex flex-col overflow-hidden rounded-xl border border-l-[3px] border-edge border-l-transparent bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-sensor hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <div class="relative aspect-video bg-frame">
+        <img src="assets/fpga_board.png" alt="Nexys A7 Board Demo" class="w-full h-full object-cover rounded-t-xl border-b border-slate-800" onerror="this.style.display='none'">
+        <span class="absolute inset-0 -z-0 flex items-center justify-center font-mono text-xs text-mute">assets/fpga_board.png</span>
+      </div>
+      <div class="flex flex-1 flex-col p-6">
+        <p class="font-mono text-xs text-sensor">Network &amp; Logic</p>
+        <h3 class="font-display text-xl font-bold mt-2">Digital Door Lock (Nexys A7 FPGA)</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3">A door lock implemented in VHDL on a Nexys A7 board, with debounced inputs and a multiplexed 7-segment display.</p>
+        <dl class="spec font-mono text-xs grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 mt-4">
+          <dt>FSM</dt><dd>10 states</dd><dt>Input</dt><dd>8-digit shift register</dd><dt>Display</dt><dd>7-seg multiplexer</dd><dt>Inputs</dt><dd>Edge debouncing</dd>
+        </dl>
+        <div class="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3">
+          <ul class="flex flex-wrap gap-2"><li class="tag">VHDL</li><li class="tag">Vivado</li><li class="tag">Artix-7</li></ul>
+          <a href="https://github.com/apeirithy" target="_blank" rel="noopener" class="text-sm text-indigo-300 transition-colors hover:text-sensor">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 04 -->
+    <article data-cat="embedded" class="project reveal flex flex-col overflow-hidden rounded-xl border border-l-[3px] border-edge border-l-transparent bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-sensor hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <div class="relative aspect-video bg-frame">
+        <img src="assets/vending_machine.png" alt="Smart Mini Vending Machine" class="w-full h-full object-cover rounded-t-xl border-b border-slate-800" onerror="this.style.display='none'">
+        <span class="absolute inset-0 -z-0 flex items-center justify-center font-mono text-xs text-mute">assets/vending_machine.png</span>
+      </div>
+      <div class="flex flex-1 flex-col p-6">
+        <p class="font-mono text-xs text-sensor">Embedded &amp; IoT</p>
+        <h3 class="font-display text-xl font-bold mt-2">Smart Mini Vending Machine</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3">A compact vending machine on a custom-routed single-layer PCB, with two spiral dispensers and a laser-cut chassis.</p>
+        <dl class="spec font-mono text-xs grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 mt-4">
+          <dt>MCU</dt><dd>ATmega328P</dd><dt>Driver</dt><dd>DRV8833, dual motor</dd><dt>PCB</dt><dd>Single-layer, custom</dd><dt>Body</dt><dd>Laser-cut chassis</dd>
+        </dl>
+        <div class="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3">
+          <ul class="flex flex-wrap gap-2"><li class="tag">AVR-GCC</li><li class="tag">EasyEDA</li><li class="tag">DRV8833</li></ul>
+          <a href="https://github.com/apeirithy" target="_blank" rel="noopener" class="text-sm text-indigo-300 transition-colors hover:text-sensor">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+
+    <!-- 05 -->
+    <article data-cat="embedded" class="project reveal flex flex-col overflow-hidden rounded-xl border border-l-[3px] border-edge border-l-transparent bg-card transition-all duration-300 hover:-translate-y-1.5 hover:border-purple-500/50 hover:border-l-sensor hover:shadow-[0_0_25px_rgba(124,58,237,0.15)]">
+      <div class="relative aspect-video bg-frame">
+        <img src="assets/metervin_meter.png" alt="MeterVin Hardware" class="w-full h-full object-cover rounded-t-xl border-b border-slate-800" onerror="this.style.display='none'">
+        <span class="absolute inset-0 -z-0 flex items-center justify-center font-mono text-xs text-mute">assets/metervin_meter.png</span>
+      </div>
+      <div class="flex flex-1 flex-col p-6">
+        <p class="font-mono text-xs text-sensor">Embedded &amp; IoT</p>
+        <h3 class="font-display text-xl font-bold mt-2">MeterVin: IoT Ultrasonic Distance Meter</h3>
+        <p class="text-mute text-sm leading-relaxed mt-3">A contactless distance meter that sends readings to WhatsApp through the CallMeBot REST API, with an enclosure calibrated for accurate readings.</p>
+        <dl class="spec font-mono text-xs grid grid-cols-[auto_1fr] gap-x-5 gap-y-2 mt-4">
+          <dt>Sensing</dt><dd>Ultrasonic, contactless</dd><dt>Telemetry</dt><dd>WhatsApp messages</dd><dt>API</dt><dd>CallMeBot REST</dd><dt>Calibration</dt><dd>Enclosure-aware</dd>
+        </dl>
+        <div class="mt-auto pt-5 flex flex-wrap items-center justify-between gap-3">
+          <ul class="flex flex-wrap gap-2"><li class="tag">IoT</li><li class="tag">REST API</li><li class="tag">Ultrasonic</li></ul>
+          <a href="https://github.com/apeirithy" target="_blank" rel="noopener" class="text-sm text-indigo-300 transition-colors hover:text-sensor">GitHub ↗</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="max-w-4xl mx-auto px-5 pb-24">
+  <h2 class="reveal font-display text-3xl sm:text-4xl font-bold tracking-tight">Get In Touch</h2>
+  <p class="reveal text-mute mt-3">Interested in collaborating? Feel free to reach out.</p>
+  <div class="reveal mt-8 overflow-hidden rounded-xl border border-edge bg-card">
+    <div class="flex items-center gap-2 border-b border-edge bg-frame px-4 py-2 font-mono text-[11px] text-mute">
+      <span class="w-2.5 h-2.5 rounded-full bg-sensor"></span><span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span><span class="w-2.5 h-2.5 rounded-full bg-slate-600"></span>
+      <span class="ml-3">nicholas@portfolio:~</span>
+    </div>
+    <pre id="term" class="caret min-h-[250px] whitespace-pre-wrap break-words p-5 font-mono text-xs sm:text-sm leading-relaxed text-mute" aria-live="polite"></pre>
+  </div>
+</section>
+</main>
+
+<footer class="border-t border-edge bg-frame">
+  <div class="max-w-6xl mx-auto px-5 py-8 flex flex-col sm:flex-row items-center justify-between gap-5 text-sm text-mute">
+    <p>&copy; <span id="yr"></span> Nicholas Laurensius Halim</p>
+    <div class="flex gap-6">
+      <a class="transition-colors hover:text-sensor" href="https://github.com/apeirithy" target="_blank" rel="noopener">GitHub</a>
+      <a class="transition-colors hover:text-sensor" href="https://www.linkedin.com/in/YOUR-LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="transition-colors hover:text-sensor" href="mailto:your.email@example.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Scroll reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Project filter
+const buttons = document.querySelectorAll('.filter-btn');
+const cards = document.querySelectorAll('.project');
+buttons.forEach(btn => btn.addEventListener('click', () => {
+  const f = btn.dataset.filter;
+  buttons.forEach(b => b.setAttribute('aria-pressed', b === btn));
+  cards.forEach(c => {
+    const show = f === 'all' || c.dataset.cat === f;
+    c.classList.toggle('hidden', !show);
+    c.classList.add('in');
+    if (show) { c.classList.remove('card-in'); void c.offsetWidth; c.classList.add('card-in'); }
+  });
+}));
+
+// Terminal typewriter
+const lines = [
+  ['$ whoami', 'text-ink'],
+  ['Nicholas Laurensius Halim, Computer Engineering @ BINUS University', ''],
+  ['', ''],
+  ['$ cat focus.txt', 'text-ink'],
+  ['Embedded systems, IoT, network infrastructure, digital logic', ''],
+  ['', ''],
+  ['$ contact --list', 'text-ink'],
+  ['github    https://github.com/apeirithy', 'text-indigo-300'],
+  ['linkedin  https://www.linkedin.com/in/YOUR-LINKEDIN', 'text-indigo-300'],
+  ['email     your.email@example.com', 'text-indigo-300']
+];
+const term = document.getElementById('term');
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+function render(n, partial) {
+  let html = '';
+  for (let i = 0; i < n; i++) html += `<span class="${lines[i][1]}">${esc(lines[i][0])}</span>\n`;
+  if (partial !== undefined) html += `<span class="${lines[n][1]}">${esc(partial)}</span>`;
+  term.innerHTML = html;
+}
+if (reduce) { render(lines.length); }
+else {
+  let started = false;
+  const run = async () => {
+    for (let i = 0; i < lines.length; i++) {
+      const t = lines[i][0], cmd = t.startsWith('$');
+      for (let c = 1; c <= t.length; c++) { render(i, t.slice(0, c)); await new Promise(r => setTimeout(r, cmd ? 35 : 8)); }
+      render(i + 1);
+      await new Promise(r => setTimeout(r, cmd ? 350 : 120));
+    }
+  };
+  new IntersectionObserver((e, o) => { if (e[0].isIntersecting && !started) { started = true; o.disconnect(); run(); } }, { threshold: 0.3 }).observe(term);
+}
+</script>
+</body>
+</html>
